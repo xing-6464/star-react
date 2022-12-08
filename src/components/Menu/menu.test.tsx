@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, RenderResult, screen, fireEvent } from '@testing-library/react'
 
-import Menu, { MenuProps } from './menu'
-import MenuItem from './menuItem'
+import {  Menu, MenuProps } from './menu'
+import { MenuItem } from './menuItem'
 
 const testProps: MenuProps = {
   defaultIndex: 0,

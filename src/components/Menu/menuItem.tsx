@@ -10,7 +10,7 @@ export interface MenuItemProps {
   children?: React.ReactNode
 }
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
+export const MenuItem: React.FC<MenuItemProps> = (props) => {
   const {
     index,
     disabled,
@@ -38,5 +38,3 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 }
 
 MenuItem.displayName = 'MenuItem'
-
-export default MenuItem

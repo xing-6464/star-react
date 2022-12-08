@@ -1,9 +1,10 @@
 import React from 'react'
 import './App.css'
-// import Button, { ButtonSize, ButtonType } from './components/Button/button'
-// import Alert from './components/Alert'
-import Menu from './components/Menu/menu'
-import MenuItem from './components/Menu/menuItem'
+import {
+  Menu,
+  MenuItem,
+  SubMenu
+} from './components/Menu'
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,17 @@ const App: React.FC = () => {
           <MenuItem index={1} disabled>
             cool link1
           </MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>
+              dropdown 1
+            </MenuItem>
+            <MenuItem>
+              dropdown 2
+            </MenuItem>
+            <MenuItem>
+              dropdown 3
+            </MenuItem>
+          </SubMenu>
           <MenuItem index={2}>
             cool link2
           </MenuItem>

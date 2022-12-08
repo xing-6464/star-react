@@ -18,7 +18,7 @@ interface IMenuContext {
 }
 export const MenuContext = createContext<IMenuContext>({ index: 0 })
 
-const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: React.FC<MenuProps> = (props) => {
   const {
     className,
     mode,
@@ -30,7 +30,8 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [ currentActive, setCurrentActive ] = useState(defaultIndex as number)
 
   const classes = classNames('star-menu', className, {
-    'menu-vertical': mode === 'vertical'
+    'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   })
   const handleClick = (index: number) => {
     setCurrentActive(index)
@@ -47,7 +48,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type
-      if (displayName === 'MenuItem') {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index
         })
@@ -70,5 +71,3 @@ Menu.defaultProps = {
   mode: 'horizontal',
   defaultIndex: 0
 }
-
-export default Menu
